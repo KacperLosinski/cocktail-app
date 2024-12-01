@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.56d44aff.css",
-    "main.js": "/static/js/main.d9253d99.js",
+    "main.js": "/static/js/main.8f413088.js",
     "static/js/453.62107cc9.chunk.js": "/static/js/453.62107cc9.chunk.js",
     "static/media/titillium-web-latin-400-normal.woff": "/static/media/titillium-web-latin-400-normal.92c680a5dde8f96ce9bb.woff",
     "static/media/titillium-web-latin-400-normal.woff2": "/static/media/titillium-web-latin-400-normal.55b29b135a9838d9e0f7.woff2",
@@ -9,11 +9,11 @@
     "static/media/titillium-web-latin-ext-400-normal.woff2": "/static/media/titillium-web-latin-ext-400-normal.fc46e868e0ca6c2fa856.woff2",
     "index.html": "/index.html",
     "main.56d44aff.css.map": "/static/css/main.56d44aff.css.map",
-    "main.d9253d99.js.map": "/static/js/main.d9253d99.js.map",
+    "main.8f413088.js.map": "/static/js/main.8f413088.js.map",
     "453.62107cc9.chunk.js.map": "/static/js/453.62107cc9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.56d44aff.css",
-    "static/js/main.d9253d99.js"
+    "static/js/main.8f413088.js"
   ]
 }
