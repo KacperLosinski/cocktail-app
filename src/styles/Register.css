@@ -1,0 +1,163 @@
+/* src/styles/Register.css */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css'); /* Font Awesome dla ikon */
+
+:root {
+  --primary-color: #0b1455; /* Ciemnoniebieski */
+  --secondary-color: #1cdc6a; /* Zielony */
+  --error-color: #dc3545; /* Czerwony */
+  --background-color: #f0f2f5; /* Jasne tło */
+  --text-color: #333;
+  --font-family: 'Titillium Web', sans-serif;
+}
+
+/* Ogólny styl dla kontenera */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--background-color);
+}
+
+/* Styl karty rejestracji */
+.register-card {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  font-family: var(--font-family);
+}
+
+/* Nagłówek */
+.register-title {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+/* Komunikat o błędzie */
+.error-message {
+  color: var(--error-color);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* Stylizacje dla grupy inputów */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.input-label {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+/* Stylizacje dla inputów */
+.register-input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s;
+  font-family: var(--font-family);
+}
+
+.register-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 6px rgb(11 20 85 / 20%);
+}
+
+/* Styl przycisku rejestracji */
+.register-button {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.register-button:hover {
+  background-color: #0056b3;
+}
+
+/* Styl dla separatora */
+.divider {
+  margin: 1rem 0;
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Przycisk Google */
+.google-button,
+.facebook-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.google-button {
+  background-color: #db4437;
+}
+
+.google-button:hover {
+  background-color: #c13a2f;
+}
+
+.facebook-button {
+  background-color: #3b5998;
+}
+
+.facebook-button:hover {
+  background-color: #2d4373;
+}
+
+/* Styl dla ikon */
+.icon {
+  font-size: 1.2rem;
+}
+
+/* Link do logowania */
+.login-link {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  font-family: var(--font-family);
+}
+
+.login-link a {
+  color: var(--input-focus-border-color);
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  color: #0056b3;
+}
+
+.success-message {
+  color: #28a745; /* Zielony kolor dla wiadomości sukcesu */
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+

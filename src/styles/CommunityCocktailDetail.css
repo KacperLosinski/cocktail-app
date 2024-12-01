@@ -1,0 +1,269 @@
+:root { 
+  --primary-color: #0b1455; /* ciemnoniebieski */
+  --secondary-color: #1cdc6a; /* zielony */
+  --error-color: #ee4f19; /* pomarańczowy */
+  --background-color: #f8faff; /* jasne tło */
+  --text-color: #0b1455; /* ciemnoniebieski */
+  --light-text-color: #666;
+}
+
+.cocktail-detail-container {
+  width: 80%;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--background-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+  text-align: center;
+}
+
+.cocktail-name {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.cocktail-image {
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  color: var(--text-color);
+  margin: 2rem 0 1rem;
+}
+
+.ingredients-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.ingredient-item {
+  width: 120px;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  margin: 0.5rem;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  text-align: center;
+}
+
+.ingredient-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.ingredient-measure {
+  font-size: 1rem;
+  color: var(--light-text-color);
+}
+
+.instructions {
+  font-size: 1.2rem;
+  color: var(--light-text-color);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.favorite-button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1.1rem;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 1rem 0;
+}
+
+.favorite-button:hover {
+  background-color: #218838;
+}
+
+.favorite-button.favorite {
+  background-color: var(--error-color);
+}
+
+.favorite-button.favorite:hover {
+  background-color: #c82333;
+}
+
+.rating-section {
+  padding: 1rem;
+  background: transparent;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.rating-section h3 {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.star-container {
+  display: inline-flex;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+/* Style for average-rating-star - no hover effect */
+.average-rating-star {
+  color: #ccc; /* Light grey for empty stars */
+  cursor: default;
+  pointer-events: none;
+  transition: none;
+}
+
+.average-rating-star.filled {
+  color: #ffd700; /* Gold color for filled stars */
+}
+
+/* stylelint-disable property-no-vendor-prefix, property-disallowed-list */
+.average-rating-star.partial {
+  background: linear-gradient(90deg, #ffd700 50%, #ccc 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* stylelint-enable */
+
+
+
+/* No hover effect for average-rating-star */
+.average-rating-star:hover {
+  color: #ccc !important;
+}
+
+
+
+/* Style for user-rating-star - only this is interactive */
+.user-rating-star {
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.user-rating-star.filled {
+  color: #ffd700; /* Gold color for filled stars */
+}
+
+/* Hover effect only on user-rating-star */
+.user-rating-star:hover {
+  color: #ffd700;
+}
+
+.rating-section button {
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.rating-section button:hover {
+  background-color: #0069d9;
+}
+
+.comments-section button { /* stylelint-disable-line no-descending-specificity */
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.comments-section {
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.comments-section h3 {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.comment {
+  background-color: #fff; /* lepiej odróżnia się od tła */
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 10%);
+  border-left: 5px solid var(--primary-color); /* wyróżnienie komentarzy */
+}
+
+.comment strong {
+  color: var(--text-color);
+}
+
+.comment p {
+  color: var(--light-text-color);
+  margin: 0.5rem 0;
+  word-break: break-word; /* To handle long words without overflow */
+}
+
+.comments-section textarea {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin-top: 1rem;
+  resize: vertical;
+}
+
+
+.comments-section button:hover {
+  background-color: #0069d9;
+}
+
+.error-message {
+  color: var(--error-color);
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.character-counter {
+  font-size: 0.9rem;
+  color: var(--light-text-color);
+  text-align: right;
+  margin-top: 0.5rem;
+}
+
+/* Responsywność */
+@media (width <= 768px) {
+  .cocktail-detail-container {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .cocktail-name {
+    font-size: 2rem;
+  }
+
+  .cocktail-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .ingredient-item {
+    width: 100px;
+    padding: 0.5rem;
+  }
+}

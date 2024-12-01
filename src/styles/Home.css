@@ -1,0 +1,348 @@
+:root {
+  --primary-color: #0b1455; /* Dark blue */
+  --secondary-color: #1cdc6a; /* Green */
+  --error-color: #ee4f19; /* Orange */
+  --background-color: #f8faff; /* Light background */
+  --text-color: #0b1455;
+  --light-text-color: #666;
+  --primary-font: 'Titillium Web', sans-serif;
+}
+
+/* Styl ogólny dla całej aplikacji */
+body {
+  font-family: var(--primary-font);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+
+/* Ujednolicenie czcionek dla nagłówków */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--primary-font);
+  font-weight: 700; /* Dla nagłówków możesz ustawić większą grubość */
+  color: var(--primary-color); /* Kolor nagłówków */
+}
+
+/* Ujednolicenie czcionek dla przycisków */
+button {
+  font-family: var(--primary-font);
+}
+
+/* Main container styling */
+.home-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--background-color);
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgb(0 0 0 / 10%);
+}
+
+/* Header styling */
+.home-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05rem;
+}
+
+/* Search input container */
+.home-search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+/* Search input styling */
+.home-search-input {
+  width: 60%;
+  padding: 0.8rem 1rem;
+  font: var(--primary-color);
+  font-weight: 500;
+  font-size: 1.1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-right: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.home-search-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 6px rgb(11 20 85 / 20%);
+}
+
+/* Buttons styling */
+.home-add-button,
+.home-search-by-ingredients-button,
+.home-remove-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.home-add-button:hover,
+.home-search-by-ingredients-button:hover,
+.home-remove-button:hover { /* stylelint-disable-line no-descending-specificity */
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.home-remove-button {
+  background-color: var(--error-color);
+}
+
+.home-remove-button:hover {
+  background-color: #c0392b;
+}
+
+.home-search-by-ingredients-button {
+  background-color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.home-search-by-ingredients-button:hover {
+  background-color: #1aa856;
+}
+
+/* Styl przycisku z plusem */
+.home-add-ingredient-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.8rem; /* Dopasuj rozmiar czcionki */
+  font-weight: bold;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 15%);
+  line-height: 1; /* Dostosuj line-height, aby wycentrować */
+  padding: 0; /* Usuń padding, aby uniknąć przesunięcia */
+}
+
+/* Centrowanie tylko zawartości przycisku */
+.home-add-ingredient-button::before {
+  content: '+';
+  display: inline-block;
+  transform: translateY(-10%); /* Dostosuj tę wartość, aby osiągnąć idealne centrowanie */
+}
+
+
+.home-add-ingredient-button:hover {
+  background-color: #0b1455;
+  transform: scale(1.1);
+}
+
+/* Selected ingredients container */
+.home-ingredients-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.home-ingredient-item {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  font-size: 0.9rem;
+}
+
+.home-ingredient-item button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+/* Dropdown for ingredient suggestions */
+.home-ingredients-dropdown {
+  max-height: 200px;
+  overflow-y: auto;
+  width: 60%;
+  margin-top: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: white;
+}
+
+/* Styl dla opcji składnika */
+.home-ingredient-option {
+  display: flex;
+  align-items: center; /* Wycentrowanie pionowe tekstu i przycisku */
+  justify-content: space-between; /* Przestrzeń między tekstem a przyciskiem */
+  padding: 0.7rem;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+}
+
+
+.home-ingredient-option:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Cocktail list styling */
+.home-cocktail-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.home-cocktail-item {
+  background-color: white;
+  margin: 15px;
+  width: 200px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.home-cocktail-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgb(0 0 0 / 20%);
+}
+
+.home-cocktail-image {
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.home-cocktail-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.8rem;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.home-cocktail-description {
+  font-size: 0.9rem;
+  color: var(--light-text-color);
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+/* No cocktails message styling */
+.home-no-cocktails {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--error-color);
+  margin-top: 1.5rem;
+}
+
+/* Pagination styling */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.pagination-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 0 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.pagination-button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.pagination-button.active {
+  background-color: var(--secondary-color);
+}
+
+/* Sort and search button container */
+
+/* Container for sort and search button */
+.sort-search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem; /* Space between the Sort by dropdown and the Search button */
+  margin-bottom: 1.5rem;
+}
+
+/* Sort container styling */
+.sort-container {
+  display: flex;
+  align-items: center;
+  font: var(--primary-font);
+}
+
+.sort-container label {
+  font-weight: bold;
+  margin-right: 0.5rem;
+  color: var(--text-color);
+}
+
+/* Sort dropdown styling */
+.sort-container select {
+  padding: 0.6rem;
+  font: var(--primary-font);
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: white;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.sort-container select:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+}
+
+/* Search button styling */
+.home-search-by-ingredients-button {
+  background-color: var(--secondary-color);
+  font-weight: 600;
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.home-search-by-ingredients-button:hover {
+  background-color: #1aa856;
+}
+
+
+/* Error message styling */
+.home-error-message {
+  color: var(--error-color);
+  font-size: 1.1rem;
+  text-align: center;
+  margin-top: 1rem;
+}

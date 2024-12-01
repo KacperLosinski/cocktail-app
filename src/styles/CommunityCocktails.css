@@ -1,0 +1,128 @@
+/* CommunityCocktails.css */
+
+.community-cocktails-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.cocktail-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.cocktail-item {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.cocktail-item:hover {
+  transform: scale(1.05);
+}
+
+.community-cocktail-image {
+  max-width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.rating-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%; /* Zapobiega wychodzeniu poza rodzica */
+  overflow: hidden; /* Ukrywa nadmiar */
+  margin: 0 auto; /* Wyśrodkowanie */
+  box-sizing: border-box;
+}
+
+.star-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; /* Zawijanie wierszy w mniejszych ekranach */
+  max-width: 100%; /* Zapobiega nadmiarowi */
+  gap: 0.5rem;
+}
+
+
+/* Unique class for CommunityCocktails stars */
+.list-star {
+  font-size: 1.2rem;
+  color: #ccc; /* Light grey color for empty stars */
+  cursor: default;
+  pointer-events: none;
+  transition: none;
+}
+
+.star {
+  font-size: 1.2rem;
+}
+
+.list-star.filled {
+  color: #ffd700; /* Gold color for filled stars */
+}
+
+/* Override hover behavior */
+.list-star:hover {
+  color: #ccc !important;
+}
+
+.rating-count {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-right: 0.5rem;
+}
+
+.average-rating-value {
+  font-size: 1rem;
+  color: var(--primary-color);
+  margin-left: 0.5rem;
+}
+
+.comment-section {
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.comment-count {
+  font-size: 1rem;
+  color: var(--light-text-color);
+}
+
+.remove-button {
+  background-color: var(--error-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.remove-button:hover {
+  background-color: #c0392b;
+}
+
+.error-message {
+  color: var(--error-color);
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .list-star {
+    font-size: 1rem; /* Mniejszy rozmiar na węższych ekranach */
+  }
+  .star {
+    font-size: 1rem; 
+  }
+}

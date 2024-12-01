@@ -1,0 +1,104 @@
+.age-verification-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(11, 20, 85, 0.9); /* Przyciemniony ciemny niebieski */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  font-family: 'Titillium Web', sans-serif;
+  animation: fadeIn 0.5s ease-in-out; /* Animacja wejścia */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.age-verification-container {
+  background: #f8faff; /* Jasne tło */
+  padding: 2rem;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: #0b1455; /* Ciemny niebieski dla tekstu */
+  max-width: 90%;
+  width: 400px; /* Maksymalna szerokość */
+  animation: scaleUp 0.3s ease-in-out; /* Animacja powiększenia */
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.age-verification-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem; /* Odstęp między przyciskami */
+}
+
+.age-verification-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #1cdc6a; /* Zielony */
+  color: #f8faff;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Animacja hover */
+}
+
+.age-verification-button:hover,
+.age-verification-button:focus {
+  background-color: #0b1455; /* Ciemny niebieski */
+  transform: translateY(-2px); /* Efekt uniesienia */
+}
+
+.age-verification-button:focus {
+  outline: 2px solid #f8faff; /* Obramowanie dla lepszej widoczności */
+}
+
+.age-verification-button.underage {
+  background-color: #ee4f19; /* Pomarańczowy */
+}
+
+.age-verification-button.underage:hover,
+.age-verification-button.underage:focus {
+  background-color: #c82333; /* Ciemniejszy czerwony */
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+  .age-verification-container {
+    padding: 1.5rem;
+    width: 90%; /* Zmniejsz szerokość na mniejszych ekranach */
+  }
+
+  .age-verification-button {
+    padding: 0.5rem 1rem; /* Mniejsze przyciski na mniejszych ekranach */
+    font-size: 0.9rem;
+  }
+
+  h2 {
+    font-size: 1.5rem; /* Mniejszy nagłówek */
+  }
+}

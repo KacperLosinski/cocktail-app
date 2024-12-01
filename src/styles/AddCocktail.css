@@ -1,0 +1,182 @@
+.add-cocktail-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #f8faff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.add-cocktail-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #0b1455;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d8e3e0;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.file-input {
+  display: none;
+}
+
+.custom-file-label {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  width: 30%;
+  background-color: #3d2fee;
+  color: white !important;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+#file-upload:focus + .custom-file-label,
+#file-upload:hover + .custom-file-label {
+  color: white !important;
+}
+
+.custom-file-label:hover { /* stylelint-disable-line no-descending-specificity */
+  background-color: #ee4f19;
+}
+
+.add-ingredient-button {
+  padding: 0.5rem 1rem;
+  background-color: #1cdc6a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.add-ingredient-button:hover {
+  background-color: #0b1455;
+}
+
+.submit-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #3d2fee;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.submit-button:hover {
+  background-color: #ee4f19;
+}
+
+.message {
+  margin-top: 1rem;
+  color: #0b1455;
+  font-size: 0.9rem;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.ingredient-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.ingredient-group input {
+  flex: 1;
+  font-size: 0.9rem;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.cropper-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  margin-top: 1rem;
+  background-color: #333;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.success-message {
+  color: #1cdc6a;
+  font-weight: bold;
+  margin-top: 1rem;
+  font-family: 'Anton SC', sans-serif;
+}
+
+.remove-ingredient-button {
+  background-color: #ee4f19;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.8rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.remove-ingredient-button:hover {
+  background-color: #e60000;
+}
+
+@media (width <= 768px) {
+  .add-cocktail-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .custom-file-label {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .submit-button,
+  .add-ingredient-button {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}

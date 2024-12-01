@@ -1,0 +1,168 @@
+/* Zmienne kolorów */
+:root {
+  --primary-color: #0b1455; /* ciemnoniebieski */
+  --secondary-color: #1cdc6a; /* zielony */
+  --error-color: #ee4f19; /* pomarańczowy */
+  --background-color: #f8faff; /* jasne tło */
+  --text-color: #0b1455; /* ciemnoniebieski */
+  --light-text-color: #666;
+}
+
+
+/* Styl głównego kontenera szczegółów koktajlu */
+.cocktail-detail-container {
+  width: 80%;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+  text-align: center;
+}
+
+/* Tytuł koktajlu */
+.cocktail-name {
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+
+/* Obraz koktajlu */
+.cocktail-image {
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+/* Sekcja tytułów */
+.section-title {
+  font-size: 1.8rem;
+  color: var(--text-color);
+  margin: 1.5rem 0 1rem;
+}
+
+/* Lista składników */
+.ingredients-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+/* Styl pojedynczego składnika */
+.ingredient-item {
+  width: 150px;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: var(--background-color);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  text-align: center;
+}
+
+/* Obraz składnika */
+.ingredient-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+}
+
+/* Nazwa składnika */
+.ingredient-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+/* Miara składnika */
+.ingredient-measure {
+  color: var(--light-text-color);
+  font-size: 0.9rem;
+}
+
+/* Instrukcje */
+.instructions {
+  font-size: 1.2rem;
+  color: var(--light-text-color);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* Przycisk dodania do ulubionych */
+.favorite-button {
+  padding: 0.5rem 1.5rem;
+  font-size: 1.1rem;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 1rem 0;
+  transition: background-color 0.3s;
+}
+
+/* Hover dla przycisku dodania do ulubionych */
+.favorite-button:hover {
+  background-color: #3d2fee;
+}
+
+/* Przycisk, gdy koktajl jest już ulubionym */
+.favorite-button.favorite {
+  background-color: var(--error-color);
+}
+
+/* Hover dla ulubionego przycisku */
+.favorite-button.favorite:hover {
+  background-color: #c82333;
+}
+
+/* Styl wiadomości o błędzie */
+.error-message {
+  color: var(--error-color);
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+/* Styl wiadomości ładowania */
+.loading-message {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+
+/* Dodanie responsywności */
+@media (width <= 768px) {
+  .cocktail-detail-container {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .cocktail-name {
+    font-size: 1.8rem;
+  }
+
+  .ingredient-item {
+    width: 120px;
+    margin: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .ingredient-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .cocktail-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .favorite-button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+}

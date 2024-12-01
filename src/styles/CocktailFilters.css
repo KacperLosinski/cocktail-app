@@ -1,0 +1,120 @@
+/* src/styles/CocktailFilters.css */
+
+:root {
+  --primary-color: #0b1455; /* intensywny ciemnoniebieski */
+  --secondary-color: #1cdc6a; /* jasny zielony */
+  --background-light: #f8faff; /* bardzo jasny niebieski */
+  --highlight-color: #3d2fee; /* wyrazisty niebieski */
+  --hover-color: #d8e3e0; /* delikatny zielony */
+  --error-color: #ee4f19; /* pomarańczowy */
+}
+
+/* Kontener filtra */
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--background-light);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgb(0 0 0 / 10%);
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+/* Tytuł filtra */
+.filter-title {
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Grupa wejścia filtra */
+.filter-input-group {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.filter-input {
+  flex: 1;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid var(--hover-color);
+  border-radius: 8px;
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+
+.filter-input:focus {
+  border-color: var(--highlight-color);
+  box-shadow: 0 0 5px rgb(61 47 238 / 50%); /* Efekt podświetlenia na niebiesko */
+}
+
+.filter-button {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  background-color: var(--highlight-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.filter-button:hover {
+  background-color: var(--primary-color);
+}
+
+/* Stylizacja dla listy sugestii */
+.ingredients-suggestions {
+  margin-top: 0.75rem;
+  list-style-type: none;
+  padding: 0;
+  max-width: 400px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+  background-color: #fff;
+}
+
+.ingredient-suggestion-item {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  color: var(--primary-color);
+  font-size: 1rem;
+}
+
+.ingredient-suggestion-item:hover {
+  background-color: var(--hover-color);
+}
+
+/* Przycisk dodawania składnika w stylu plusa */
+
+
+
+
+/* Stylizacja komunikatu błędu */
+.error-message {
+  color: var(--error-color);
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+/* Stylizacja dla urządzeń mobilnych */
+@media (width <= 768px) {
+  .filter-input-group {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .filter-input,
+  .filter-button {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+}
