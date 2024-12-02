@@ -90,7 +90,7 @@ const CommunityCocktailDetail = () => {
 
   const handleCommentSubmit = async () => {
     if (!currentUser || !comment.trim()) return;
-
+  
     try {
       const response = await fetch(`${API_URL}/api/community-cocktails/${id}/comment`, {
         method: 'POST',
@@ -101,10 +101,12 @@ const CommunityCocktailDetail = () => {
         body: JSON.stringify({ text: comment, userId: currentUser.email }),
       });
       if (!response.ok) throw new Error('Failed to submit comment.');
-
-      const updatedData = await response.json();
+  
       setComment('');
-      setComments(updatedData.comments || []); // Ustawienie domyślnej wartości
+      setComments((prevComments) => [
+        ...prevComments,
+        { userName: currentUser.email.split('@')[0], text: comment.trim() }
+      ]);
     } catch (error) {
       console.error('Failed to submit comment:', error);
     }
