@@ -15,11 +15,10 @@ const CommunityCocktailDetail = () => {
   const [rating, setRating] = useState(0);
   const [averageRating, setAverageRating] = useState(null);
   const [comment, setComment] = useState('');
-  const [comments, setComments] = useState([]);
+  const [comments, setComments] = useState([]); // Domyślna wartość jako pusta tablica
   const maxCommentLength = 1500;
 
   const API_URL = process.env.REACT_APP_API_URL;
-
 
   // Sprawdza, czy koktajl jest już w ulubionych
   const isFavorite = favorites.some((fav) => fav.idDrink === (cocktail?.idDrink || cocktail?._id));
@@ -38,7 +37,7 @@ const CommunityCocktailDetail = () => {
       const data = await response.json();
       setCocktail(data.cocktail || data);
       setAverageRating(data.cocktail?.averageRating || data.averageRating || 0);
-      setComments(data.comments || []);
+      setComments(data.comments || []); // Ustawienie domyślnej wartości
     } catch (error) {
       setError('Nie udało się załadować szczegółów koktajlu. Spróbuj ponownie później.');
     } finally {
@@ -83,13 +82,11 @@ const CommunityCocktailDetail = () => {
     }
   };
 
-
   const handleCommentChange = (e) => {
     if (e.target.value.length <= maxCommentLength) {
       setComment(e.target.value);
     }
   };
-
 
   const handleCommentSubmit = async () => {
     if (!currentUser || !comment.trim()) return;
@@ -107,7 +104,7 @@ const CommunityCocktailDetail = () => {
 
       const updatedData = await response.json();
       setComment('');
-      setComments(updatedData.comments);
+      setComments(updatedData.comments || []); // Ustawienie domyślnej wartości
     } catch (error) {
       console.error('Failed to submit comment:', error);
     }
@@ -132,7 +129,6 @@ const CommunityCocktailDetail = () => {
         );
       });
   };
-  
 
   if (loading) {
     return <p className="loading-message">Loading...</p>;
@@ -196,8 +192,8 @@ const CommunityCocktailDetail = () => {
       </div>
 
       <div className="comments-section">
-        <h3>Comments ({comments.length})</h3>
-        {comments.map((c, index) => (
+        <h3>Comments ({Array.isArray(comments) ? comments.length : 0})</h3>
+        {Array.isArray(comments) && comments.map((c, index) => (
           <div key={index} className="comment">
             <p><strong>{c.userName}:</strong> {c.text}</p>
           </div>
