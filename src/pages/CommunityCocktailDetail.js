@@ -142,9 +142,6 @@ const CommunityCocktailDetail = () => {
     return <p className="error-message">Cocktail not found.</p>;
   }
 
-  const numberOfRatings = cocktail?.ratings?.length || 0;
-  const displayAverageRating = averageRating.toFixed(1);
-
   return (
     <div className="cocktail-detail-container">
       <h2 className="cocktail-name">{cocktail.name}</h2>
@@ -152,17 +149,12 @@ const CommunityCocktailDetail = () => {
 
       <h3 className="section-title">Ingredients</h3>
       <div className="ingredients-list">
-      {Array.isArray(cocktail.ingredients) && cocktail.ingredients.length > 0 ? (
-  cocktail.ingredients.map((ingredient, index) => (
-    <div key={index} className="ingredient-item">
-      <div className="ingredient-name">{ingredient.name}</div>
-      <div className="ingredient-measure">{ingredient.measure}</div>
-    </div>
-  ))
-) : (
-  <p>No ingredients listed.</p>
-)}
-
+        {cocktail.ingredients.map((ingredient, index) => (
+          <div key={index} className="ingredient-item">
+            <div className="ingredient-name">{ingredient.name}</div>
+            <div className="ingredient-measure">{ingredient.measure}</div>
+          </div>
+        ))}
       </div>
 
       <h3 className="section-title">Instructions</h3>
@@ -178,11 +170,10 @@ const CommunityCocktailDetail = () => {
       <div className="rating-section">
         <h3>Average Rating</h3>
         <div className="average-rating">
-          <span className="average-rating-value">{displayAverageRating}</span>
+          <span className="average-rating-value">{averageRating.toFixed(1)}</span>
           <div className="star-container">
             {renderStars(averageRating)}
           </div>
-          <span className="rating-count">{numberOfRatings} ratings</span>
         </div>
 
         <h3>Rate this cocktail</h3>
@@ -193,8 +184,8 @@ const CommunityCocktailDetail = () => {
       </div>
 
       <div className="comments-section">
-        <h3>Comments ({Array.isArray(comments) ? comments.length : 0})</h3>
-        {Array.isArray(comments) && comments.map((c, index) => (
+        <h3>Comments</h3>
+        {comments.map((c, index) => (
           <div key={index} className="comment">
             <p><strong>{c.userName}:</strong> {c.text}</p>
           </div>
@@ -205,7 +196,6 @@ const CommunityCocktailDetail = () => {
           onChange={handleCommentChange}
           maxLength={maxCommentLength}
         />
-        <p className='character-counter'>{comment.length}/{maxCommentLength} characters</p>
         <button onClick={handleCommentSubmit}>Submit Comment</button>
       </div>
     </div>
