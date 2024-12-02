@@ -152,16 +152,17 @@ const CommunityCocktailDetail = () => {
 
       <h3 className="section-title">Ingredients</h3>
       <div className="ingredients-list">
-        {cocktail.ingredients.length ? (
-          cocktail.ingredients.map((ingredient, index) => (
-            <div key={index} className="ingredient-item">
-              <div className="ingredient-name">{ingredient.name}</div>
-              <div className="ingredient-measure">{ingredient.measure}</div>
-            </div>
-          ))
-        ) : (
-          <p>No ingredients listed.</p>
-        )}
+      {Array.isArray(cocktail.ingredients) && cocktail.ingredients.length > 0 ? (
+  cocktail.ingredients.map((ingredient, index) => (
+    <div key={index} className="ingredient-item">
+      <div className="ingredient-name">{ingredient.name}</div>
+      <div className="ingredient-measure">{ingredient.measure}</div>
+    </div>
+  ))
+) : (
+  <p>No ingredients listed.</p>
+)}
+
       </div>
 
       <h3 className="section-title">Instructions</h3>
