@@ -16,8 +16,6 @@ import AgeVerification from './components/AgeVerification';
 import './styles/App.css'; 
 import '@fontsource/titillium-web';
 
-
-
 // Komponent do zabezpieczania tras (tylko dla zalogowanych użytkowników)
 const PrivateRoute = ({ children }) => {
   const { currentUser } = useAuth();
@@ -34,7 +32,7 @@ const App = () => {
   return (
     <AuthProvider>
       <FavoritesProvider>
-        <Router>
+        <Router basename="/cocktail-app"> {/* Dodano basename dla obsługi podfolderu */}
           {!isAgeVerified && <AgeVerification onVerify={handleAgeVerification} />}
           {isAgeVerified && (
             <AppWrapper> {/* Cała aplikacja z nawigacją przyklejoną u góry */}
