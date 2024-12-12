@@ -17,12 +17,17 @@ const AddCocktail = () => {
   const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
   const [message, setMessage] = useState('');
   const [cropSuccess, setCropSuccess] = useState('');
-  const [isLoading, setIsLoading] = useState(false); // Wskaźnik ładowania
+  const [isLoading, setIsLoading] = useState(false);
 
   const maxInstructionsLength = 3000;
 
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
+  if (!API_URL) {
+    console.error('API_URL is not defined in your environment variables.');
+  }
+
   const token = localStorage.getItem('authToken');
-  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000'; // Dynamiczne API
 
   const handleAddIngredient = () => {
     setIngredients([...ingredients, { name: '', measure: '' }]);
@@ -47,7 +52,6 @@ const AddCocktail = () => {
     const file = e.target.files[0];
     if (!file) return;
 
-    // Obsługa typów plików
     const validTypes = ['image/jpeg', 'image/png'];
     if (!validTypes.includes(file.type)) {
       setMessage('Unsupported file type. Please upload a JPEG or PNG image.');
@@ -78,7 +82,7 @@ const AddCocktail = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true); // Ustawienie wskaźnika ładowania
+    setIsLoading(true);
 
     const formData = new FormData();
     formData.append('userId', currentUser.email);
@@ -104,7 +108,7 @@ const AddCocktail = () => {
       console.error('Failed to add cocktail:', error.response?.data || error);
       setMessage('Failed to add cocktail. Try again later.');
     } finally {
-      setIsLoading(false); // Wyłączenie wskaźnika ładowania
+      setIsLoading(false);
     }
   };
 
