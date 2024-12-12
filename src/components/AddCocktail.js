@@ -16,17 +16,10 @@ const AddCocktail = () => {
   const [zoom, setZoom] = useState(1);
   const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
   const [message, setMessage] = useState('');
-  const [cropSuccess, setCropSuccess] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const maxInstructionsLength = 3000;
-
   const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
-
-  if (!API_URL) {
-    console.error('API_URL is not defined in your environment variables.');
-  }
-
   const token = localStorage.getItem('authToken');
 
   const handleAddIngredient = () => {
@@ -72,8 +65,7 @@ const AddCocktail = () => {
     try {
       const croppedImageBlob = await getCroppedImg(image, croppedAreaPixels);
       setCroppedImage(croppedImageBlob);
-      setCropSuccess('Image cropped successfully!');
-      setTimeout(() => setCropSuccess(''), 3000);
+      setMessage('Image cropped successfully!');
     } catch (e) {
       console.error('Error cropping image:', e);
       setMessage('Failed to crop image.');
@@ -85,38 +77,35 @@ const AddCocktail = () => {
     setIsLoading(true);
 
     const formData = new FormData();
-formData.append('userId', currentUser.email);
-formData.append('name', name);
-formData.append('instructions', instructions);
-formData.append('image', croppedImage);
+    formData.append('userId', currentUser.email);
+    formData.append('name', name);
+    formData.append('instructions', instructions);
+    formData.append('image', croppedImage);
 
-// Serializacja składników do JSON
-formData.append('ingredients', JSON.stringify(ingredients));
+    // Serializacja składników do JSON
+    formData.append('ingredients', JSON.stringify(ingredients));
 
-
-try {
-  const response = await axios.post(`${API_URL}/api/community-cocktails`, formData, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-      Authorization: `Bearer ${token}`,
-    },
-  });
-  setMessage(response.data.message);
-  console.log('Cocktail added successfully:', response.data);
-} catch (error) {
-  console.error('Failed to add cocktail:', error.response?.data || error);
-  setMessage('Failed to add cocktail. Try again later.');
-} finally {
-  setIsLoading(false);
-}
-
+    try {
+      const response = await axios.post(`${API_URL}/api/community-cocktails`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setMessage(response.data.message);
+      console.log('Cocktail added successfully:', response.data);
+    } catch (error) {
+      console.error('Failed to add cocktail:', error.response?.data || error);
+      setMessage('Failed to add cocktail. Try again later.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
     <div className="add-cocktail-container">
       <h2>Add Your Cocktail</h2>
       {message && <p className="message">{message}</p>}
-      {cropSuccess && <p className="success-message">{cropSuccess}</p>}
       {isLoading && <p className="loading-message">Adding your cocktail...</p>}
 
       <form onSubmit={handleSubmit} className="add-cocktail-form">
