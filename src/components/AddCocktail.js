@@ -85,31 +85,30 @@ const AddCocktail = () => {
     setIsLoading(true);
 
     const formData = new FormData();
-    formData.append('userId', currentUser.email);
-    formData.append('name', name);
-    formData.append('instructions', instructions);
-    formData.append('image', croppedImage);
+formData.append('userId', currentUser.email);
+formData.append('name', name);
+formData.append('instructions', instructions);
+formData.append('image', croppedImage);
 
-    ingredients.forEach((ingredient, index) => {
-      formData.append(`ingredients[${index}][name]`, ingredient.name);
-      formData.append(`ingredients[${index}][measure]`, ingredient.measure);
-    });
+// Serializacja składników do JSON
+formData.append('ingredients', JSON.stringify(ingredients));
 
-    try {
-      const response = await axios.post(`${API_URL}/api/community-cocktails`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      setMessage(response.data.message);
-      console.log('Cocktail added successfully:', response.data);
-    } catch (error) {
-      console.error('Failed to add cocktail:', error.response?.data || error);
-      setMessage('Failed to add cocktail. Try again later.');
-    } finally {
-      setIsLoading(false);
-    }
+try {
+  const response = await axios.post(`${API_URL}/api/community-cocktails`, formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  setMessage(response.data.message);
+  console.log('Cocktail added successfully:', response.data);
+} catch (error) {
+  console.error('Failed to add cocktail:', error.response?.data || error);
+  setMessage('Failed to add cocktail. Try again later.');
+} finally {
+  setIsLoading(false);
+}
+
   };
 
   return (
