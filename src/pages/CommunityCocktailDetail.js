@@ -147,7 +147,7 @@ const CommunityCocktailDetail = () => {
   return (
     <div className="cocktail-detail-container">
       <h2 className="cocktail-name">{cocktail.name}</h2>
-      <img src={`${API_URL}/uploads/${cocktail.image}`} alt={cocktail.name} className="cocktail-image" />
+      <img src={`${API_URL}${cocktail.image}`} alt={cocktail.name} className="cocktail-image" />
 
       <h3 className="section-title">Ingredients</h3>
       <div className="ingredients-list">
