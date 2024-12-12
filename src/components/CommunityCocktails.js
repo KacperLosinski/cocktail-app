@@ -106,7 +106,7 @@ const CommunityCocktails = () => {
               onKeyPress={(e) => e.key === 'Enter' && handleCocktailClick(cocktail._id)}
             >
               <img
-                src={cocktail.image ? `${API_URL}${cocktail.image}` : '/default-image.jpg'}
+                src={cocktail.image ? `${API_URL}/var/data/${cocktail.image}` : '/default-image.jpg'}
                 alt={cocktail.name}
                 className="community-cocktail-image"
               />
