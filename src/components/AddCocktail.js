@@ -93,6 +93,7 @@ formData.append('image', croppedImage);
 // Serializacja składników do JSON
 formData.append('ingredients', JSON.stringify(ingredients));
 
+
 try {
   const response = await axios.post(`${API_URL}/api/community-cocktails`, formData, {
     headers: {
