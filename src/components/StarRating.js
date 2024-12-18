@@ -1,13 +1,13 @@
 import React from 'react';
 
-const StarRating = ({ rating, isUserRating = false }) => {
+const StarRating = ({ currentRating, isUserRating = false }) => {
   return (
     <div className="star-rating">
       {Array(5)
         .fill(0)
         .map((_, index) => {
-          const isFilled = index < Math.floor(rating);
-          const isPartial = index === Math.floor(rating) && rating % 1 !== 0;
+          const isFilled = index < Math.floor(currentRating);
+          const isPartial = index === Math.floor(currentRating) && currentRating % 1 !== 0;
           const starClass = isUserRating ? 'user-rating-star' : 'average-rating-star';
 
           return (
@@ -15,6 +15,7 @@ const StarRating = ({ rating, isUserRating = false }) => {
               key={index}
               className={`star ${starClass} ${isFilled ? 'filled' : isPartial ? 'partial' : 'empty'}`}
               style={isPartial ? { '--clip-width': `${(rating % 1) * 100}%` } : {}}
+              onClick={isUserRating ? () => setRating(index + 1) : undefined}
             >
               ★
             </span>
