@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext'; // Import kontekstu autoryzacji, aby pobrać bieżącego użytkownika
+import StarRating from './components/StarRating'; // Ścieżka może się różnić w zależności od lokalizacji komponentu
 import '../styles/CommunityCocktails.css';
 
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
@@ -49,19 +50,19 @@ const MyCocktails = () => {
     navigate(`/community-cocktail/${id}`);
   };
 
-  const renderStars = (currentRating) => {
+  const renderStars = (currentRating, isUserRating = false) => {
     return Array(5)
       .fill(0)
       .map((_, index) => {
         const isFilled = index < Math.floor(currentRating);
-        const isPartial = !isFilled && index === Math.floor(currentRating);
-        const fillPercentage = isPartial ? `${(currentRating % 1) * 100}%` : '100%';
-
+        const isPartial = index === Math.floor(currentRating) && currentRating % 1 !== 0;
+        const starClass = isUserRating ? 'user-rating-star' : 'average-rating-star';
+  
         return (
           <span
             key={index}
-            className={`list-star ${isFilled ? 'filled' : 'empty'}`}
-            style={{ '--fill-percent': isPartial ? fillPercentage : isFilled ? '100%' : '0%' }}
+            className={`star ${starClass} ${isFilled ? 'filled' : isPartial ? 'partial' : 'empty'}`}
+            onClick={isUserRating ? () => setRating(index + 1) : undefined}
           >
             ★
           </span>
@@ -92,7 +93,7 @@ const MyCocktails = () => {
               <div className="rating-section">
                 <div className="star-container">
                   <span className="rating-count">{cocktail.ratings?.length || 0} ratings</span>
-                  {renderStars(cocktail.averageRating || 0)}
+                  <StarRating rating={cocktail.averageRating || 0} />
                   <span className="average-rating-value">{(cocktail.averageRating || 0).toFixed(1)}</span>
                 </div>
                 <div className="comment-section">
