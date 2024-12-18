@@ -50,26 +50,6 @@ const MyCocktails = () => {
     navigate(`/community-cocktail/${id}`);
   };
 
-  const renderStars = (currentRating, isUserRating = false) => {
-    return Array(5)
-      .fill(0)
-      .map((_, index) => {
-        const isFilled = index < Math.floor(currentRating);
-        const isPartial = index === Math.floor(currentRating) && currentRating % 1 !== 0;
-        const starClass = isUserRating ? 'user-rating-star' : 'average-rating-star';
-  
-        return (
-          <span
-            key={index}
-            className={`star ${starClass} ${isFilled ? 'filled' : isPartial ? 'partial' : 'empty'}`}
-            onClick={isUserRating ? () => setRating(index + 1) : undefined}
-          >
-            ★
-          </span>
-        );
-      });
-  };
-
   if (loading) return <p>Ładowanie...</p>;
   if (error) return <p className="error-message">{error}</p>;
 
