@@ -1,5 +1,4 @@
 import React from 'react';
-import './StarRating.css'; // opcjonalne, jeśli stylujesz gwiazdki
 
 const StarRating = ({ rating, isUserRating = false }) => {
   return (
