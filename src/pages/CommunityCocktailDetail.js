@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { useFavorites } from '../contexts/FavoritesContext';
 import { useAuth } from '../contexts/AuthContext';
+import StarRating from '../components/StarRating'; // Ścieżka może się różnić w zależności od lokalizacji komponentu
 import '../styles/CommunityCocktailDetail.css';
 import { auth } from '../firebase';
 
@@ -112,26 +113,6 @@ const CommunityCocktailDetail = () => {
     }
   };
 
-  const renderStarsDetail = (currentRating, isUserRating = false) => {
-    return Array(5)
-      .fill(0)
-      .map((_, index) => {
-        const isFilled = index < Math.floor(currentRating);
-        const isPartial = index === Math.floor(currentRating) && currentRating % 1 !== 0;
-        const starClass = isUserRating ? 'user-rating-star' : 'average-rating-star';
-  
-        return (
-          <span
-            key={index}
-            className={`star ${starClass} ${isFilled ? 'filled' : isPartial ? 'partial' : 'empty'}`}
-            onClick={isUserRating ? () => setRating(index + 1) : undefined}
-          >
-            ★
-          </span>
-        );
-      });
-  };
-
   if (loading) {
     return <p className="loading-message">Loading...</p>;
   }
@@ -174,14 +155,14 @@ const CommunityCocktailDetail = () => {
         <div className="average-rating">
           <span className="average-rating-value">{averageRating.toFixed(1)}</span>
           <div className="star-container">
-            {renderStarsDetail(averageRating)}
+          <StarRating currentRating={averageRating} />
           </div>
           <span className="rating-count">{cocktail.ratings?.length || 0} ratings</span>
         </div>
 
         <h3>Rate this cocktail</h3>
         <div className="star-container">
-          {renderStarsDetail(rating, true)}
+          {StarTating(rating, true)}
         </div>
         <button onClick={handleRatingSubmit}>Submit Rating</button>
       </div>
