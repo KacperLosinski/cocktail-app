@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import StarRating from './StarRating'; // Ścieżka może się różnić w zależności od lokalizacji komponentu
 import '../styles/CommunityCocktails.css';
 import { auth } from '../firebase';
 
@@ -65,27 +66,6 @@ const CommunityCocktails = () => {
     navigate(`/community-cocktail/${id}`);
   };
 
-  const renderStars = (currentRating, isUserRating = false) => {
-    return Array(5)
-      .fill(0)
-      .map((_, index) => {
-        const isFilled = index < Math.floor(currentRating);
-        const isPartial = index === Math.floor(currentRating) && currentRating % 1 !== 0;
-        const starClass = isUserRating ? 'user-rating-star' : 'average-rating-star';
-
-        return (
-          <span
-            key={index}
-            className={`star ${starClass} ${isFilled ? 'filled' : isPartial ? 'partial' : 'empty'}`}
-            style={isPartial ? { '--clip-width': `${(currentRating % 1) * 100}%` } : {}}
-            onClick={isUserRating ? () => setRating(index + 1) : undefined}
-          >
-            ★
-          </span>
-        );
-      });
-  };
-
   return (
     <div className="community-cocktails-container">
       <h2>Community Cocktails</h2>
@@ -114,7 +94,7 @@ const CommunityCocktails = () => {
               <div className="rating-section">
                 <div className="star-container">
                   <span className="rating-count">{cocktail.ratings?.length || 0} ratings</span>
-                  {renderStars(cocktail.averageRating || 0)}
+                  <StarRating currentRating={cocktail.averageRating || 0} />
                   <span className="average-rating-value">
                     {(cocktail.averageRating || 0).toFixed(1)}
                   </span>
