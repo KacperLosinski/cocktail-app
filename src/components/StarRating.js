@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/CommunityCocktailDetail.css';
 
 const StarRating = ({ currentRating, isUserRating = false }) => {
   return (

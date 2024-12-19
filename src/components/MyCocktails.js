@@ -73,7 +73,7 @@ const MyCocktails = () => {
               <div className="rating-section">
                 <div className="star-container">
                   <span className="rating-count">{cocktail.ratings?.length || 0} ratings</span>
-                  <StarRating rating={cocktail.averageRating || 0} />
+                  <StarRating currentRating={cocktail.averageRating || 0} />
                   <span className="average-rating-value">{(cocktail.averageRating || 0).toFixed(1)}</span>
                 </div>
                 <div className="comment-section">
