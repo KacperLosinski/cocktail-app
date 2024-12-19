@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/CommunityCocktailDetail.css';
 
-const StarRating = ({ currentRating, isUserRating = false }) => {
+const StarRating = ({ currentRating, isUserRating = false, onRatingChange }) => {
   return (
     <div className="star-rating">
       {Array(5)
@@ -16,7 +16,7 @@ const StarRating = ({ currentRating, isUserRating = false }) => {
               key={index}
               className={`star ${starClass} ${isFilled ? 'filled' : isPartial ? 'partial' : 'empty'}`}
               style={isPartial ? { '--clip-width': `${(currentRating % 1) * 100}%` } : {}}
-              onClick={isUserRating ? () => setRating(index + 1) : undefined}
+              onClick={isUserRating ? () => onRatingChange(index + 1) : undefined}
             >
               ★
             </span>

@@ -55,7 +55,6 @@
 
 /* Unique class for CommunityCocktails stars */
 .list-star {
-  font-size: 1.2rem;
   color: #ccc; /* Light grey color for empty stars */
   cursor: default;
   pointer-events: none;

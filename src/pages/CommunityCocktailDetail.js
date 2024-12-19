@@ -162,7 +162,7 @@ const CommunityCocktailDetail = () => {
 
         <h3>Rate this cocktail</h3>
         <div className="star-container">
-          {StarRating(rating, true)}
+          <StarRating currentRating={rating} isUserRating={true} onRatingChange={setRating} />
         </div>
         <button onClick={handleRatingSubmit}>Submit Rating</button>
       </div>
