@@ -96,6 +96,25 @@
   background-color: #c82333;
 }
 
+/* Updated styles for average-rating */
+.average-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem; /* Odstęp między elementami */
+}
+
+.average-rating-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.rating-count {
+  font-size: 1rem;
+  color: var(--light-text-color);
+}
+
 .rating-section {
   padding: 1rem;
   background: transparent;
@@ -112,21 +131,33 @@
 .star-container {
   display: inline-flex;
   justify-content: center;
-  font-size: 2rem;
+  align-items: center;
+  font-size: 2rem; /* Stały rozmiar gwiazdek */
 }
+
 .star {
-  font-size: 2rem;
+  font-size: 2rem; /* Stały rozmiar niezależny od innych stylów */
 }
+
 /* Style for average-rating-star - no hover effect */
 .average-rating-star {
-  color: #ccc; /* Light grey for empty stars */
-  cursor: default;
+  color: #ccc; /* Jasnoszary dla pustych gwiazdek */
   pointer-events: none;
-  transition: none;
 }
 
 .average-rating-star.filled {
-  color: #ffd700; /* Gold color for filled stars */
+  color: #ffd700; /* Złoty kolor dla wypełnionych gwiazdek */
+}
+
+/* Style for user-rating-star */
+.user-rating-star {
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.user-rating-star.filled {
+  color: #ffd700; /* Złoty kolor dla wypełnionych gwiazdek */
 }
 
 /* stylelint-disable property-no-vendor-prefix, property-disallowed-list */
