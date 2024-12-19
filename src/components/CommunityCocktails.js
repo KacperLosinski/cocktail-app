@@ -93,7 +93,6 @@ const CommunityCocktails = () => {
               <h3>{cocktail.name}</h3>
               <div className="rating-section">
                 <div className="star-container">
-                  <span className="rating-count">{cocktail.ratings?.length || 0} ratings</span>
                   <StarRating currentRating={cocktail.averageRating || 0} />
                   <span className="average-rating-value">
                     {(cocktail.averageRating || 0).toFixed(1)}

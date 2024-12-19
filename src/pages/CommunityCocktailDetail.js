@@ -112,7 +112,7 @@ const CommunityCocktailDetail = () => {
     }
   };
 
-  const renderStars = (currentRating, isUserRating = false) => {
+  const renderStarsDetail = (currentRating, isUserRating = false) => {
     return Array(5)
       .fill(0)
       .map((_, index) => {
@@ -174,13 +174,14 @@ const CommunityCocktailDetail = () => {
         <div className="average-rating">
           <span className="average-rating-value">{averageRating.toFixed(1)}</span>
           <div className="star-container">
-            {renderStars(averageRating)}
+            {renderStarsDetail(averageRating)}
           </div>
+          <span className="rating-count">{cocktail.ratings?.length || 0} ratings</span>
         </div>
 
         <h3>Rate this cocktail</h3>
         <div className="star-container">
-          {renderStars(rating, true)}
+          {renderStarsDetail(rating, true)}
         </div>
         <button onClick={handleRatingSubmit}>Submit Rating</button>
       </div>

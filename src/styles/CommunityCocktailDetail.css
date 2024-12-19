@@ -114,7 +114,9 @@
   justify-content: center;
   font-size: 2rem;
 }
-
+.star {
+  font-size: 2rem;
+}
 /* Style for average-rating-star - no hover effect */
 .average-rating-star {
   color: #ccc; /* Light grey for empty stars */
