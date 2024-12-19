@@ -134,7 +134,7 @@
   font-size: 2rem; /* Stały rozmiar gwiazdek */
 }
 
-.star-container .star {
+.average-rating .star-container .star-rating .star {
   font-size: 2rem; /* Stały rozmiar niezależny od innych stylów */
 }
 

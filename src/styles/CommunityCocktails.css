@@ -62,7 +62,7 @@
   transition: none;
 }
 
-.star-rating .star {
+.rating-section .star-container .star-rating .star {
   font-size: 1.2rem;
 }
 
