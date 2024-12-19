@@ -15,7 +15,7 @@ const StarRating = ({ currentRating, isUserRating = false }) => {
             <span
               key={index}
               className={`star ${starClass} ${isFilled ? 'filled' : isPartial ? 'partial' : 'empty'}`}
-              style={isPartial ? { '--clip-width': `${(rating % 1) * 100}%` } : {}}
+              style={isPartial ? { '--clip-width': `${(currentRating % 1) * 100}%` } : {}}
               onClick={isUserRating ? () => setRating(index + 1) : undefined}
             >
               ★
